@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+html {
+    @apply scroll-smooth bg-slate-950 text-white w-full h-dvh
+}
