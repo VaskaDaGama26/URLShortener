@@ -1,4 +1,4 @@
-const shortid = require("shortid");
+const { nanoid } = require("nanoid");
 const URL = require("../models/url");
 
 async function handleGenerateNewShortURL(req, res) {
@@ -11,7 +11,7 @@ async function handleGenerateNewShortURL(req, res) {
       return res.json({ id: existingEntry.shortId });
     }
 
-    const shortID = shortid();
+    const shortID = nanoid(8);
     console.log("Generated shortID:", shortID);
 
     const newEntry = await URL.create({

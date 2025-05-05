@@ -2,6 +2,7 @@ const express = require("express");
 const URL = require("./models/url");
 const { connectToMongoDB } = require("./connect");
 const urlRoute = require("./routes/router");
+const cors = require("cors");
 
 const app = express();
 const PORT = 8001;
@@ -11,6 +12,7 @@ connectToMongoDB(
 ).then(() => console.log("Mongodb connected"));
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/url", urlRoute);
 
